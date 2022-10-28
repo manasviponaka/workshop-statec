@@ -34,3 +34,33 @@ starwars |>
                  by = list(Species = species,
                            Sex = sex),
                  mean))
+
+# aggregate on two colulns using the same function
+starwars |>
+  with(aggregate(cbind(height, mass),
+                 by = list(Sex = sex),
+                 FUN = mean, na.rm = TRUE))
+
+# --------------------  MORE ADVANCED OPERATIONS   ---------------------------#
+
+# create a (fake) dataset
+survey_data_base <- as.data.frame(
+  tibble::tribble(
+    ~id, ~var1, ~var2, ~var3,
+    1, 1, 0.2, 0.3,
+    2, 1.4, 1.9, 4.1,
+    3, 0.1, 2.8, 8.9,
+    4, 1.7, 1.9, 7.6
+  )
+)
+
+# IMPORTANT:  is NOT suited to row-based workflows!
+# Thus: reshape data
+survey_data_long <- reshape(survey_data_base,
+                            varying = list(2:4), v.names = "variable", direction = "long")
+
+aggregate(survey_data_long$variable, 
+          by=list(ID = survey_data_long$id),
+          mean)
+
+# END
