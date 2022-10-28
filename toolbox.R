@@ -21,3 +21,17 @@ paste0("Hello", "amigo")
 paste0(c("Joseph", "Mary", "Jesus"), collapse = ", and ")
 tolower("HAHAHAHAH")
 toupper("hueuehuehuheuhe")
+
+# quote() to know what's going on is a complicated function
+quote(10 |> log())
+library(dplyr)
+data(starwars)
+quote(
+  starwars |>
+    subset(!is.na(sex)) |>
+    with(aggregate(height,
+                   by = list(Species = species,
+                             Sex = sex),
+                   mean))
+)
+
