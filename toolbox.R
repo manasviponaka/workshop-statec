@@ -1,10 +1,3 @@
-library(dplyr)
-
-# basics manipulation of dataFrames
-data(starwars)
-View(starwars)
-str(starwars)
-
 # create sequences
 rep(1,10)
 rep("HAHA", 20)
