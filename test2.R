@@ -1,7 +1,7 @@
 # Blablabla Barbara
 
-v <- c(1,2,3)
-v
+var <- c(1,2,3,4)
+var
 
-print(1+2)
+print(var)
 
