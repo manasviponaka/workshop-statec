@@ -8,4 +8,4 @@ library(dplyr)
   log
 
 16 %>% sqrt %>% `+`(18)
-16 |> sqrt() |> `+`(x = _, 18)
+16 |> sqrt() |> `+`(x = _, 18)# squareroot
